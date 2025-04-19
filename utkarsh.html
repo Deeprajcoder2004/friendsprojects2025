@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SMIT Clubs and Societies</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('watermark.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: 30%;
+            color: #333;
+            position: relative;
+            zoom: 0.9; /* Reduce overall size */
+        }
+
+        .left-decor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 25%;
+            background-image: url('images/ubg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        .right-decor {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 25%;
+            background-image: url('images/ubg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #2c3e50;
+            color: white;
+            padding: 0.4rem 0;
+            text-align: center;
+            font-size: 1rem; /* Reduced font size */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-logo {
+            height: 40px; /* Reduced logo size */
+            margin-right: 10px; /* Reduced spacing */
+            mix-blend-mode: lighten;
+        }
+
+        .container {
+            width: 90%; /* Adjusted width */
+            max-width: 800px; /* Reduced max-width */
+            margin: auto;
+            overflow: hidden;
+            padding: 10px; /* Reduced padding */
+            padding-bottom: 100px; /* Adjusted padding */
+            position: relative;
+            z-index: 1;
+        }
+
+        .club {
+            background: #fff;
+            padding: 15px; /* Reduced padding */
+            margin: 15px 0; /* Reduced margin */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #3498db;
+        }
+
+        .club:hover {
+            transform: translateY(-8px); /* Reduced lift */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.2rem; /* Reduced font size */
+            margin-bottom: 8px; /* Reduced margin */
+            font-weight: 700;
+        }
+
+        p, ul {
+            font-size: 0.9rem; /* Reduced font size */
+            color: #555;
+            line-height: 1.5; /* Adjusted line height */
+            margin-bottom: 10px; /* Reduced margin */
+        }
+
+        p {
+            font-style: italic;
+            color: #666;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 8px; /* Reduced margin */
+            padding-left: 18px; /* Reduced padding */
+            position: relative;
+            font-size: 0.9rem; /* Reduced font size */
+        }
+
+        ul li:before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+            font-size: 1rem; /* Reduced font size */
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 8px 15px; /* Reduced padding */
+            text-align: center;
+            font-size: 0.7rem; /* Reduced font size */
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px; /* Reduced height */
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        footer .footer-text, footer .created-by {
+            flex: 1;
+            text-align: left;
+        }
+
+        .proceed-button {
+            position: fixed;
+            bottom: 60px; /* Adjusted position */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 25px; /* Reduced padding */
+            border: none;
+            border-radius: 20px; /* Adjusted border radius */
+            font-size: 0.9rem; /* Reduced font size */
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            z-index: 2;
+        }
+
+        .proceed-button:hover {
+            background-color: #ff1a1a;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                zoom: 1; /* Reset zoom for mobile */
+            }
+
+            header {
+                font-size: 0.9rem; /* Further reduced font size */
+                padding: 0.3rem 0;
+            }
+
+            .header-logo {
+                height: 35px; /* Further reduced logo size */
+            }
+
+            .container {
+                width: 95%; /* Adjusted width for mobile */
+                padding: 5px; /* Further reduced padding */
+            }
+
+            h2 {
+                font-size: 1rem; /* Further reduced font size */
+            }
+
+            p, ul li {
+                font-size: 0.8rem; /* Further reduced font size */
+            }
+
+            .club {
+                padding: 10px; /* Further reduced padding */
+                margin: 10px 0; /* Further reduced margin */
+            }
+
+            footer {
+                font-size: 0.6rem; /* Further reduced font size */
+                height: 35px; /* Further reduced height */
+                padding: 5px 10px; /* Further reduced padding */
+            }
+
+            .proceed-button {
+                bottom: 50px; /* Adjusted position for mobile */
+                font-size: 0.8rem; /* Further reduced font size */
+                padding: 8px 20px; /* Further reduced padding */
+            }
+
+            .left-decor, .right-decor {
+                display: none; /* Hide edge images on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="left-decor"></div>
+    <div class="right-decor"></div>
+
+    <header>
+        <img src="images/ulogo.jpg" alt="SMIT Logo" class="header-logo">
+        <h1>SMIT Clubs and Societies</h1>
+    </header>
+    
+    <div class="container">
+        <div class="club">
+            <h2>SMIT Cultural Club</h2>
+            <ul>
+                <li><span class="highlight">Illusion</span> - The oldest dance group on campus, inspiring students to express through dance since 2000.</li>
+                <li><span class="highlight">Udaan</span> - Founded in 2015, this vibrant dance society has taken the stage by storm with stunning performances.</li>
+                <li><span class="highlight">Chromatics</span> - SMIT’s first music club, bringing together diverse musical talents and creating magical performances since 2016.</li>
+            </ul>
+        </div>
+
+        <div class="club">
+            <h2>SMITMUN</h2>
+            <p><span class="highlight">SMITMUN</span> is a platform that simulates United Nations conferences, where students discuss global issues and develop leadership skills. This student-run initiative creates world-class leaders.</p>
+        </div>
+
+        <div class="club">
+            <h2>CHATTER</h2>
+            <p><span class="highlight">Chatter</span> is SMIT’s student-run newsletter, covering everything from campus events to student life, food, and more. A creative outlet for the campus community to share ideas and stories.</p>
+        </div>
+
+        <div class="club">
+            <h2>SPORTS CLUB</h2>
+            <p>The <span class="highlight">Sports Club</span> encourages fitness and competitive spirit by organizing various sports events and promoting a healthy lifestyle within the campus.</p>
+        </div>
+
+        <div class="club">
+            <h2>PHOTOGRAPHY CLUB</h2>
+            <p>The <span class="highlight">Photography Club</span> at SMIT nurtures a passion for capturing moments and the art of photography, offering workshops and opportunities for creative expression.</p>
+        </div>
+
+        <div class="club">
+            <h2>INNOVISON</h2>
+            <p><span class="highlight">Innovison</span> is a dynamic group of clubs that promotes innovation and creativity, featuring clubs like Edge Gaming, INQUIZITIVE, OSC, AI Club, and De Desino.</p>
+            <ul>
+                <li><span class="highlight">Edge Gaming</span> - A gaming community that connects gamers and organizes competitive gaming tournaments.</li>
+                <li><span class="highlight">INQUIZITIVE</span> - A quiz club that fosters a love for knowledge through interactive quizzes and competitions.</li>
+                <li><span class="highlight">Open Source Club (OSC)</span> - Encourages students to contribute to open-source projects and build their development skills.</li>
+                <li><span class="highlight">AI Club</span> - Focuses on the study and exploration of Artificial Intelligence technologies and applications.</li>
+                <li><span class="highlight">De Desino</span> - A creative club for students interested in design, including graphic design, UX/UI, and more.</li>
+            </ul>
+        </div>
+
+        <div class="club">
+            <h2>ALUMNI CELL</h2>
+            <p>The <span class="highlight">Alumni Cell</span> maintains strong connections between SMIT and its alumni, creating networking opportunities and ensuring that alumni stay engaged with the college.</p>
+        </div>
+
+        <div class="club">
+            <h2>DECODERS</h2>
+            <p><span class="highlight">Decoders</span> is a club dedicated to coding enthusiasts. It fosters learning through coding challenges, collaborative projects, and skill-building workshops.</p>
+        </div>
+    </div>
+
+    <button class="proceed-button" onclick="window.location.href='login.php'">Click to Proceed</button>
+
+    <footer>
+        <div class="footer-text">
+            <p style="color: white; text-align: left;">&copy; 2025 SMIT Clubs & Societies</p>
+        </div>
+        <div class="created-by">
+            <p style="color: white; text-align: left;">Created By Group 6</p>
+        </div>
+    </footer>
+</body>
+</html>
